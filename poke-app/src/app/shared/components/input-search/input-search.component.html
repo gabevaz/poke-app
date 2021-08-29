@@ -1,0 +1,26 @@
+<div class="input-search">
+  <input
+    class="input-search__field"
+    type="text"
+    placeholder="Digite o nome do seu Pokémon favorito"
+    [(ngModel)]="inputSearchValue"
+    #fieldSearch
+  />
+
+  <ng-container *ngIf="inputSearchValue.length === 0">
+    <img
+      src="../../../../assets/imgs/pesquisa-de-lupa.png"
+      alt="pesquisa-de-lupa.png"
+      class="input-search__icon"
+    />
+  </ng-container>
+
+  <ng-container *ngIf="inputSearchValue.length > 0">
+    <img
+      src="../../../../assets/imgs/clear.png"
+      alt="clear.png"
+      class="input-search__icon clean"
+      (click)="cleanInputSearch()"
+    />
+  </ng-container>
+</div>
