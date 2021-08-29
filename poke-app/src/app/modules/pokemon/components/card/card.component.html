@@ -1,0 +1,15 @@
+<div class="card" [routerLink]="[link, linkParam]">
+  <div class="header">
+    <div
+      class="header__img"
+      [ngStyle]="{
+        'background-image': 'url(' + imageUrl + ')'
+      }"
+    ></div>
+
+    <div class="header__content">
+      <h4 class="header__title">{{ title }}</h4>
+      <p class="header__more-details">Mais detalhes...</p>
+    </div>
+  </div>
+</div>
