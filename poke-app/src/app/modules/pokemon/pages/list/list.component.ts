@@ -6,13 +6,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription, fromEvent, of } from 'rxjs';
-import {
-  debounceTime,
-  map,
-  distinctUntilChanged,
-  filter,
-} from 'rxjs/operators';
+import { Subscription, fromEvent } from 'rxjs';
+import { debounceTime, map, distinctUntilChanged } from 'rxjs/operators';
 
 import { ResultList } from '../../models/result-list.model';
 import { PokemonService } from '../../services/pokemon.service';

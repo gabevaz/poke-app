@@ -65,25 +65,19 @@
           </div>
         </div>
       </ng-container>
+
+      <pagination-controls
+        id="listOfItems"
+        (pageChange)="pageChanged($event)"
+        previousLabel=""
+        nextLabel=""
+        [autoHide]="true"
+      >
+      </pagination-controls>
     </ng-container>
 
     <ng-container *ngIf="!isLoading && listOfItems.length === 0">
-      <div class="no-results">
-        <img
-          src="../../../../../assets/imgs/pesquisa-de-lupa-cinza.png"
-          alt="pesquisa-de-lupa-cinza.png"
-          class="no-results__icon"
-        />
-        <p class="no-results__text">Sem resultados...</p>
-      </div>
+      <no-results></no-results>
     </ng-container>
-
-    <pagination-controls
-      id="listOfItems"
-      (pageChange)="pageChanged($event)"
-      previousLabel=""
-      nextLabel=""
-    >
-    </pagination-controls>
   </div>
 </div>
