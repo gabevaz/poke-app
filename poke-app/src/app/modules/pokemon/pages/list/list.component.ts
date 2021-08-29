@@ -8,6 +8,8 @@ import {
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 
+import { ListResponse } from '../../models/list-response.model';
+import { PokemonDetails } from '../../models/pokemon-details.model';
 import { ResultList } from '../../models/result-list.model';
 import { PokemonService } from '../../services/pokemon.service';
 
@@ -20,11 +22,11 @@ export class ListComponent implements OnDestroy, OnInit {
   @ViewChild('fieldSearch', { static: true }) fieldSearch: ElementRef;
 
   currentPage: number = 1;
-  isLoading: boolean = true;
-  limit: number = 9;
-  listOfItems: any[] = [];
   getAllPokemonsSubs: Subscription;
   getByPokemonNameSubs: Subscription;
+  isLoading: boolean = true;
+  limit: number = 9;
+  listOfItems: PokemonDetails[] = [];
   offset: number = 0;
   totalItens: number = 0;
 
@@ -60,7 +62,7 @@ export class ListComponent implements OnDestroy, OnInit {
     this.getAllPokemonsSubs = this.pokemonService
       .getAllPokemons(this.limit, offset)
       .subscribe(
-        (result) => {
+        (result: ListResponse) => {
           this.generateItems(result.results);
           this.totalItens = result.count;
         },
@@ -93,7 +95,7 @@ export class ListComponent implements OnDestroy, OnInit {
     this.getByPokemonNameSubs = this.pokemonService
       .getPokemonByParam(name)
       .subscribe(
-        (result) => {
+        (result: PokemonDetails) => {
           this.listOfItems.push(result);
           this.totalItens = 1;
         },
