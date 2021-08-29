@@ -104,11 +104,11 @@ export class ListComponent implements OnDestroy, OnInit {
     this.getAllPokemons();
   }
 
-  resetItems() {
+  resetItems(): void {
     this.listOfItems = [];
   }
 
-  searchByName(name: string) {
+  searchByName(name: string): void {
     if (!name || name.length === 0) {
       this.resetItems();
       this.getAllPokemons();
