@@ -1,5 +1,100 @@
-<div class="container">
+<div class="container home">
   <div class="row">
-    <h1>Teste</h1>
+    <h1>
+      <img
+        src="../../../../../assets/imgs/pokemon-logo.png"
+        alt="pokemon-logo.png"
+        class="logo"
+      />
+    </h1>
+
+    <h2 class="title">Bem-vindo ao PokéApp</h2>
+    <p class="subtitle">
+      Aqui você encontra todos os Pokémons disponíveis em um só lugar!
+    </p>
+  </div>
+
+  <div class="row mb-5">
+    <div class="input-search">
+      <input
+        class="input-search__field"
+        type="text"
+        placeholder="Digite o nome do seu Pokémon favorito"
+        [(ngModel)]="inputSearchValue"
+        #fieldSearch
+      />
+
+      <ng-container *ngIf="inputSearchValue.length === 0">
+        <img
+          src="../../../../../assets/imgs/pesquisa-de-lupa.png"
+          alt="pesquisa-de-lupa.png"
+          class="input-search__icon"
+        />
+      </ng-container>
+
+      <ng-container *ngIf="inputSearchValue.length > 0">
+        <img
+          src="../../../../../assets/imgs/clear.png"
+          alt="clear.png"
+          class="input-search__icon clean"
+          (click)="cleanInputSearch()"
+        />
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row">
+    <ng-container *ngIf="!isLoading && listOfItems.length > 0">
+      <ng-container
+        *ngFor="
+          let item of listOfItems
+            | paginate
+              : {
+                  id: 'listOfItems',
+                  itemsPerPage: limit,
+                  currentPage: currentPage,
+                  totalItems: totalItens
+                }
+        "
+      >
+        <div class="col-md-4 mb-4">
+          <div class="card" [routerLink]="['/', item?.id]">
+            <div class="header">
+              <div
+                class="header__img"
+                [ngStyle]="{
+                  'background-image':
+                    'url(' + item?.sprites?.front_default + ')'
+                }"
+              ></div>
+
+              <div class="header__content">
+                <h4 class="header__title">{{ item?.name }}</h4>
+                <p class="header__more-details">Mais detalhes...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="!isLoading && listOfItems.length === 0">
+      <div class="no-results">
+        <img
+          src="../../../../../assets/imgs/pesquisa-de-lupa-cinza.png"
+          alt="pesquisa-de-lupa-cinza.png"
+          class="no-results__icon"
+        />
+        <p class="no-results__text">Sem resultados...</p>
+      </div>
+    </ng-container>
+
+    <pagination-controls
+      id="listOfItems"
+      (pageChange)="pageChanged($event)"
+      previousLabel=""
+      nextLabel=""
+    >
+    </pagination-controls>
   </div>
 </div>
