@@ -1,0 +1,18 @@
+.no-results {
+  align-items: center;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.8;
+  padding: 90px 0;
+  text-align: center;
+
+  &__icon {
+    max-width: 100px;
+  }
+
+  &__text {
+    color: #cacaca;
+    font-size: 1.125rem;
+    margin: 15px 0;
+  }
+}
