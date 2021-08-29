@@ -1,0 +1,10 @@
+@import '../base/index';
+
+body {
+  background-color: $blue-primary;
+}
+
+.ngx-pagination {
+  margin: 20px 0;
+  text-align: center;
+}
