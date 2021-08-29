@@ -7,6 +7,7 @@ import { ListComponent } from './pages/list/list.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { PokemonRoutingModule } from './pokemon-routing.module';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [ListComponent, DetailsComponent],
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     PokemonRoutingModule,
     NgxPaginationModule,
     FormsModule,
+    SharedModule,
   ],
 })
 export class PokemonModule {}
