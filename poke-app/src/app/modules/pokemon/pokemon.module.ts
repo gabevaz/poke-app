@@ -6,7 +6,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ListComponent } from './pages/list/list.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { PokemonRoutingModule } from './pokemon-routing.module';
-import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     HttpClientModule,
     PokemonRoutingModule,
     NgxPaginationModule,
-    FormsModule,
     SharedModule,
   ],
 })

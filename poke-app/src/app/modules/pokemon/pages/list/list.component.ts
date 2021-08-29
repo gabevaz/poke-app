@@ -6,8 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription, fromEvent } from 'rxjs';
-import { debounceTime, map, distinctUntilChanged } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 import { ResultList } from '../../models/result-list.model';
 import { PokemonService } from '../../services/pokemon.service';
@@ -21,12 +20,11 @@ export class ListComponent implements OnDestroy, OnInit {
   @ViewChild('fieldSearch', { static: true }) fieldSearch: ElementRef;
 
   currentPage: number = 1;
-  detailsSubs: Subscription;
-  inputSearchValue: any = '';
   isLoading: boolean = true;
   limit: number = 9;
   listOfItems: any[] = [];
-  listSubs: Subscription;
+  getAllPokemonsSubs: Subscription;
+  getByPokemonNameSubs: Subscription;
   offset: number = 0;
   totalItens: number = 0;
 
@@ -35,13 +33,7 @@ export class ListComponent implements OnDestroy, OnInit {
     private readonly toastr: ToastrService
   ) {}
 
-  cleanInputSearch() {
-    this.inputSearchValue = '';
-    this.resetItems();
-    this.getAllPokemons();
-  }
-
-  async generateItems(items: ResultList[]): Promise<void> {
+  private async generateItems(items: ResultList[]): Promise<void> {
     if (!items || items.length === 0) {
       this.resetItems();
       return;
@@ -61,11 +53,11 @@ export class ListComponent implements OnDestroy, OnInit {
     this.isLoading = false;
   }
 
-  getAllPokemons(): void {
+  private getAllPokemons(): void {
     const offset = (this.currentPage - 1) * this.limit;
     this.isLoading = true;
 
-    this.listSubs = this.pokemonService
+    this.getAllPokemonsSubs = this.pokemonService
       .getAllPokemons(this.limit, offset)
       .subscribe(
         (result) => {
@@ -78,32 +70,17 @@ export class ListComponent implements OnDestroy, OnInit {
             'Atenção!'
           );
           this.resetItems();
-          this.totalItens = 0;
         }
       )
       .add(() => (this.isLoading = false));
   }
 
-  ngOnDestroy(): void {
-    this.listSubs.unsubscribe();
-  }
-
-  ngOnInit(): void {
-    this.getAllPokemons();
-    this.setEventToInput();
-  }
-
-  pageChanged(page: number): void {
-    this.resetItems();
-    this.currentPage = page;
-    this.getAllPokemons();
-  }
-
-  resetItems(): void {
+  private resetItems(): void {
     this.listOfItems = [];
+    this.totalItens = 0;
   }
 
-  searchByName(name: string): void {
+  getByPokemonName(name: string): void {
     if (!name || name.length === 0) {
       this.resetItems();
       this.getAllPokemons();
@@ -113,32 +90,32 @@ export class ListComponent implements OnDestroy, OnInit {
     this.isLoading = true;
     this.resetItems();
 
-    setTimeout(() => {
-      this.pokemonService
-        .getPokemonByParam(name)
-        .subscribe(
-          (result) => {
-            this.listOfItems.push(result);
-          },
-          () => {
-            this.resetItems();
-          }
-        )
-        .add(() => (this.isLoading = false));
-    }, 1000);
+    this.getByPokemonNameSubs = this.pokemonService
+      .getPokemonByParam(name)
+      .subscribe(
+        (result) => {
+          this.listOfItems.push(result);
+          this.totalItens = 1;
+        },
+        () => {
+          this.resetItems();
+        }
+      )
+      .add(() => (this.isLoading = false));
   }
 
-  setEventToInput(): void {
-    fromEvent(this.fieldSearch.nativeElement, 'keyup')
-      .pipe(
-        map((event: any) => {
-          return event.target.value;
-        }),
-        debounceTime(1000),
-        distinctUntilChanged()
-      )
-      .subscribe((text: string) => {
-        this.searchByName(text);
-      });
+  ngOnDestroy(): void {
+    this.getAllPokemonsSubs.unsubscribe();
+    this.getByPokemonNameSubs.unsubscribe();
+  }
+
+  ngOnInit(): void {
+    this.getAllPokemons();
+  }
+
+  pageChanged(page: number): void {
+    this.resetItems();
+    this.currentPage = page;
+    this.getAllPokemons();
   }
 }
