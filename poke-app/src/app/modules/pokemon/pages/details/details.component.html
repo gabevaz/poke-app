@@ -1,1 +1,79 @@
-<p>details works!</p>
+<div class="container details">
+  <div class="details__content">
+    <div class="header">
+      <button title="Voltar" class="header__back" [routerLink]="['/']">
+        <img
+          src="../../../../../assets/imgs/arrow.png"
+          alt="arrow.png"
+          class="header__icon"
+        />
+      </button>
+
+      <div class="header__logo">
+        <img
+          src="../../../../../assets/imgs/pokemon-logo.png"
+          alt="pokemon-logo.png"
+          class="header__logo-img"
+        />
+      </div>
+    </div>
+
+    <div class="content">
+      <div
+        class="content__img"
+        [ngStyle]="{
+          'background-image': 'url(' + details?.sprites?.front_default + ')'
+        }"
+      ></div>
+      <div class="content__div">
+        <div class="data">
+          <p class="data__title">Nome</p>
+          <p class="data__content">
+            {{ details?.name ? details?.name : "--" }}
+          </p>
+        </div>
+
+        <div class="data">
+          <p class="data__title">Espécie</p>
+          <p class="data__content">
+            {{ details?.species?.name ? details?.species?.name : "--" }}
+          </p>
+        </div>
+
+        <div class="data">
+          <p class="data__title">Altura (dm)</p>
+          <p class="data__content">
+            {{ details?.height ? details?.height : "--" }}
+          </p>
+        </div>
+
+        <div class="data">
+          <p class="data__title">Peso (hg)</p>
+          <p class="data__content">
+            {{ details?.weight ? details?.weight : "--" }}
+          </p>
+        </div>
+
+        <div class="data">
+          <p class="data__title">Base de experiência</p>
+          <p class="data__content">
+            {{ details?.base_experience ? details?.base_experience : "--" }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer content__div">
+      <div class="data">
+        <p class="data__title">Estatísticas</p>
+        <ng-container *ngFor="let stat of details?.stats">
+          <div class="data__list">
+            <div><b>Tipo</b>: {{ stat?.stat?.name }}</div>
+            <div><b>Valor</b>: {{ stat?.base_stat }}</div>
+            <div><b>EVs</b>: {{ stat?.effort }}</div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
