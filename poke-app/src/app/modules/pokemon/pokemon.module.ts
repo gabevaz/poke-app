@@ -7,9 +7,10 @@ import { ListComponent } from './pages/list/list.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { PokemonRoutingModule } from './pokemon-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { HeaderHomeComponent } from './components/header-home/header-home.component';
 
 @NgModule({
-  declarations: [ListComponent, DetailsComponent],
+  declarations: [ListComponent, DetailsComponent, HeaderHomeComponent],
   imports: [
     CommonModule,
     HttpClientModule,
