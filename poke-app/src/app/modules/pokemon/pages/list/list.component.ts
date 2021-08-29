@@ -105,8 +105,8 @@ export class ListComponent implements OnDestroy, OnInit {
   }
 
   ngOnDestroy(): void {
-    this.getAllPokemonsSubs.unsubscribe();
-    this.getByPokemonNameSubs.unsubscribe();
+    this.getAllPokemonsSubs ? this.getAllPokemonsSubs.unsubscribe() : null;
+    this.getByPokemonNameSubs ? this.getByPokemonNameSubs.unsubscribe() : null;
   }
 
   ngOnInit(): void {

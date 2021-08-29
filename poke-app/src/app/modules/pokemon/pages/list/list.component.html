@@ -22,22 +22,12 @@
         "
       >
         <div class="col-md-4 mb-4">
-          <div class="card" [routerLink]="['/', item?.id]">
-            <div class="header">
-              <div
-                class="header__img"
-                [ngStyle]="{
-                  'background-image':
-                    'url(' + item?.sprites?.front_default + ')'
-                }"
-              ></div>
-
-              <div class="header__content">
-                <h4 class="header__title">{{ item?.name }}</h4>
-                <p class="header__more-details">Mais detalhes...</p>
-              </div>
-            </div>
-          </div>
+          <card
+            [link]="'/'"
+            [linkParam]="item?.id"
+            [imageUrl]="item?.sprites?.front_default"
+            [title]="item?.name"
+          ></card>
         </div>
       </ng-container>
 
