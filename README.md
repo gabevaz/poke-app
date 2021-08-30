@@ -13,4 +13,4 @@
 
 ## Run App
 - npm start -> inicia e roda o projeto em ambiente de desenvolvimento na url: http://localhost:4200/
-- npm run build --prod -> comando para gerar o "pacote" do projeto para fazer o deploy
+- npm run build --prod -> comando para gerar o "pacote" do projeto para fazer o deploy em produção
