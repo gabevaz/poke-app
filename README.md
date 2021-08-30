@@ -1,6 +1,7 @@
 # Teste VR Beneficios - PokéApp
 
-> Projeto frontend para exibição de pokémons
+> Projeto frontend para exibição de pokémons </br>
+> Link em produção: https://teste-poke-app.netlify.app
 
 ## Tecnologias utilizadas
 - [**Angular 12**](https://angular.io)
