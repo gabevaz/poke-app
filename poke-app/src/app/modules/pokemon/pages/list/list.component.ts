@@ -52,7 +52,9 @@ export class ListComponent implements OnDestroy, OnInit {
       this.listOfItems.push(response);
     }
 
-    this.isLoading = false;
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 500);
   }
 
   private getAllPokemons(): void {
@@ -72,9 +74,9 @@ export class ListComponent implements OnDestroy, OnInit {
             'Atenção!'
           );
           this.resetItems();
+          this.isLoading = false;
         }
-      )
-      .add(() => (this.isLoading = false));
+      );
   }
 
   private resetItems(): void {

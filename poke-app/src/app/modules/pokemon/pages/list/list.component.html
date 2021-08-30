@@ -8,6 +8,10 @@
   </div>
 
   <div class="row">
+    <ng-container *ngIf="isLoading">
+      <loader></loader>
+    </ng-container>
+
     <ng-container *ngIf="!isLoading && listOfItems.length > 0">
       <ng-container
         *ngFor="
