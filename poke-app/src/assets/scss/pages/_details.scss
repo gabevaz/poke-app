@@ -1,0 +1,140 @@
+@import '../base/index';
+
+.content {
+  margin-bottom: 40px;
+  
+  @media (min-width: 992px) {
+    align-items: center;
+    display: flex;
+  }
+
+  &__div {
+    width: 100%;
+    
+    @media (min-width: 992px) {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__img {
+    background-color: $white-second;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    height: 160px;
+    margin-right: 30px;
+    min-width: 160px;
+    width: 160px;
+
+    @media (max-width: 991.98px) {
+      margin: 0 auto 25px;
+    }
+  }
+}
+
+.data {
+  text-align: left;
+
+  @media (max-width: 991.98px) {
+    margin-bottom: 22px;
+    text-align: center;
+  }
+
+  &:last-of-type {
+    @media (max-width: 991.98px) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__list {
+    display: flex;    
+
+    @media (max-width: 991.98px) {
+      display: block;
+      border-bottom: 1px solid $gray-primary;
+    }
+  }
+  
+  &__list-content {
+    padding: 3px 6px;
+    min-width: 100px;
+    text-align: left;
+    width: 33%;
+
+    @media (max-width: 991.98px) {
+      min-width: none;
+      padding: 6px;
+      text-align: center;
+      width: 100%;
+    }
+
+    &.wider {
+      min-width: 190px;
+    }
+  }
+
+  &__title {
+    color: $blue-primary;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 14px;
+  }   
+}
+
+.details {
+  position: relative;
+
+  @media (min-width: 992px) {
+    height: 100vh;
+  }
+
+  &__content {
+    background-color: $white-primary;
+    border-radius: 15px;
+    margin: 12px auto;
+    min-height: 50vh;
+    padding: 25px;
+    position: relative;
+    
+    @media (min-width: 992px) {
+      margin: auto auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.footer {
+  align-items: flex-start;
+
+  .data {
+    text-align: center;
+  }
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  margin-bottom: 15px;
+
+  &__back {
+    background: transparent;
+    border: 0
+  }
+
+  &__icon {
+    max-width: 25px;
+  }
+
+  &__logo {
+    margin: 0 auto;
+  }
+  
+  &__logo-img {
+    max-width: 100px;
+    width: 100%;
+  }
+}

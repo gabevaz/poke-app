@@ -1,3 +1,5 @@
+@import '../../../../assets/scss/base/colors';
+
 .no-results {
   align-items: center;
   display: block;
@@ -11,7 +13,7 @@
   }
 
   &__text {
-    color: #cacaca;
+    color: $gray-primary;
     font-size: 1.125rem;
     margin: 15px 0;
   }

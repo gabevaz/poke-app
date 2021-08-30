@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
-import { PokemonDetails } from '../../models/pokemon-details.model';
 
+import { PokemonDetails } from '../../models/pokemon-details.model';
 import { PokemonService } from '../../services/pokemon.service';
 
 @Component({

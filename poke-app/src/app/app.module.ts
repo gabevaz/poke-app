@@ -13,7 +13,7 @@ import { PokemonModule } from './modules/pokemon/pokemon.module';
     BrowserModule,
     AppRoutingModule,
     PokemonModule,
-    BrowserAnimationsModule, // required animations module
+    BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
