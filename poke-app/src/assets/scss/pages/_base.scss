@@ -7,4 +7,12 @@ body {
 .ngx-pagination {
   margin: 20px 0;
   text-align: center;
+
+  .current {
+    background-color: $blue-primary !important;
+  }
+
+  li a {
+    text-decoration: none;
+  }
 }

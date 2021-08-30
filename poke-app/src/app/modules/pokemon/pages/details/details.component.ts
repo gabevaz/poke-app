@@ -47,7 +47,11 @@ export class DetailsComponent implements OnDestroy, OnInit {
           this.emitMessageError();
         }
       )
-      .add(() => (this.isLoading = false));
+      .add(() =>
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 500)
+      );
   }
 
   ngOnDestroy(): void {
