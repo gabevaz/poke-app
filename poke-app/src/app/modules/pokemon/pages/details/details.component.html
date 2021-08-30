@@ -65,12 +65,45 @@
 
     <div class="footer content__div">
       <div class="data">
+        <p class="data__title">Habilidades</p>
+        <ng-container *ngFor="let ability of details?.abilities">
+          <div class="data__list">
+            <div class="data__list-content wider">
+              <b>Nome</b>:
+              {{ ability?.ability?.name ? ability?.ability?.name : "--" }}
+            </div>
+
+            <div class="data__list-content wider">
+              <b>Habilidade oculta</b>:
+              {{ ability?.is_hidden ? "Sim" : "Não" }}
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="data">
         <p class="data__title">Estatísticas</p>
         <ng-container *ngFor="let stat of details?.stats">
           <div class="data__list">
-            <div><b>Tipo</b>: {{ stat?.stat?.name }}</div>
-            <div><b>Valor</b>: {{ stat?.base_stat }}</div>
-            <div><b>EVs</b>: {{ stat?.effort }}</div>
+            <div class="data__list-content wider">
+              <b>Tipo</b>: {{ stat?.stat?.name ? stat?.stat?.name : "--" }}
+            </div>
+
+            <div class="data__list-content">
+              <b>Valor</b>: {{ stat?.base_stat ? stat?.base_stat : "--" }}
+            </div>
+            <div class="data__list-content"><b>EVs</b>: {{ stat?.effort }}</div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="data">
+        <p class="data__title">Tipo</p>
+        <ng-container *ngFor="let type of details?.types">
+          <div class="data__list">
+            <div class="data__list-content wider">
+              <b>Nome</b>: {{ type?.type?.name ? type?.type?.name : "--" }}
+            </div>
           </div>
         </ng-container>
       </div>

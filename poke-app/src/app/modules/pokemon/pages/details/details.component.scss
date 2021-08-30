@@ -1,13 +1,19 @@
 .content {
-  align-items: center;
-  display: flex;
-  margin-bottom: 20px;
-
-  &__div {
+  margin-bottom: 40px;
+  
+  @media (min-width: 992px) {
     align-items: center;
     display: flex;
-    justify-content: space-between;
+  }
+
+  &__div {
     width: 100%;
+    
+    @media (min-width: 992px) {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__img {
@@ -16,18 +22,56 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
-    height: 175px;
+    height: 160px;
     margin-right: 30px;
-    min-width: 175px;
-    width: 175px;
+    min-width: 160px;
+    width: 160px;
+
+    @media (max-width: 991.98px) {
+      margin: 0 auto 25px;
+    }
   }
 }
 
 .data {
-  text-align: center;
+  text-align: left;
+
+  @media (max-width: 991.98px) {
+    margin-bottom: 22px;
+    text-align: center;
+  }
+
+  &:last-of-type {
+    @media (max-width: 991.98px) {
+      margin-bottom: 0;
+    }
+  }
 
   &__list {
-    display: flex;
+    display: flex;    
+
+    @media (max-width: 991.98px) {
+      display: block;
+      border-bottom: 1px solid #cacaca;
+    }
+  }
+  
+  &__list-content {
+    padding: 3px 6px;
+    min-width: 100px;
+    text-align: left;
+    width: 33%;
+
+    @media (max-width: 991.98px) {
+      min-width: none;
+      padding: 6px;
+      text-align: center;
+      width: 100%;
+    }
+
+    &.wider {
+      min-width: 190px;
+    }
   }
 
   &__title {
@@ -39,25 +83,40 @@
 }
 
 .details {
-  height: 100vh;
   position: relative;
+
+  @media (min-width: 992px) {
+    height: 100vh;
+  }
 
   &__content {
     background-color: #fff;
     border-radius: 15px;
-    margin: auto auto;
+    margin: 12px auto;
     min-height: 50vh;
     padding: 25px;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    
+    @media (min-width: 992px) {
+      margin: auto auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.footer {
+  align-items: flex-start;
+
+  .data {
+    text-align: center;
   }
 }
 
 .header {
   align-items: center;
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 
   &__back {
     background: transparent;
