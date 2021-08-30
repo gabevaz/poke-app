@@ -1,6 +1,6 @@
 # Teste VR Beneficios - PokéApp
 
-> Projeto frontend para exibição de pokemons
+> Projeto frontend para exibição de pokémons
 
 ## Tecnologias utilizadas
 - [**Angular 12**](https://angular.io)
