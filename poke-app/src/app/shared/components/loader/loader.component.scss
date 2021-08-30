@@ -1,0 +1,22 @@
+.loader {
+  opacity: 0.7;
+
+  &__img {
+    max-width: 150px;
+    width: auto;
+    margin: 25px auto;
+    display: block;
+    animation: spinner 1s ease infinite;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #cacaca;
+  }
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
