@@ -114,27 +114,3 @@
     text-align: center;
   }
 }
-
-.header {
-  align-items: center;
-  display: flex;
-  margin-bottom: 15px;
-
-  &__back {
-    background: transparent;
-    border: 0
-  }
-
-  &__icon {
-    max-width: 25px;
-  }
-
-  &__logo {
-    margin: 0 auto;
-  }
-  
-  &__logo-img {
-    max-width: 100px;
-    width: 100%;
-  }
-}

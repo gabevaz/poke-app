@@ -9,9 +9,10 @@ import { PokemonRoutingModule } from './pokemon-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HeaderHomeComponent } from './components/header-home/header-home.component';
 import { CardComponent } from './components/card/card.component';
+import { HeaderDatailsComponent } from './components/header-datails/header-datails.component';
 
 @NgModule({
-  declarations: [ListComponent, DetailsComponent, HeaderHomeComponent, CardComponent],
+  declarations: [ListComponent, DetailsComponent, HeaderHomeComponent, CardComponent, HeaderDatailsComponent],
   imports: [
     CommonModule,
     HttpClientModule,
