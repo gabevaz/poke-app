@@ -1,4 +1,4 @@
-# Teste VR Beneficios - PokéApp
+# PokéApp
 
 > Projeto frontend para exibição de pokémons, busca e detalhes</br>
 > Link em produção: https://teste-poke-app.netlify.app
